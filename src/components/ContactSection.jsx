@@ -59,7 +59,7 @@ export default function ContactSection() {
             viewBox="0 0 16 16"
             version="1.1"
             width="24"
-            ariaHidden="true"
+            aria-hidden="true"
             onClick={onGithubLinkClick}
           >
             <path
