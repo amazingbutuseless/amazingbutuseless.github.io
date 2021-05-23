@@ -73,8 +73,8 @@ function SceneRegisteredVideoFeature() {
         고양이를 찾아 원우가 나온 장면을 확인해보세요.
       </p>
       <picture>
-        <source srcSet="/static/feature1_d.png" media="(min-width: 1280px)" />
-        <img src="/static/feature1_m.png" />
+        <source srcSet="./static/feature1_d.png" media="(min-width: 1280px)" />
+        <img src="./static/feature1_m.png" />
       </picture>
     </FeatureBoxStyle>
   );
@@ -84,7 +84,7 @@ function AutoPlayFeature() {
   return (
     <FeatureBoxStyle style={{ alignItems: "center" }}>
       <img
-        src="/static/feature2.png"
+        src="./static/feature2.png"
         style={{
           width: "240px",
           height: "auto",
@@ -129,7 +129,7 @@ function AddSceneFeature() {
         </p>
       </div>
 
-      <img src="/static/feature3.png" alt="" />
+      <img src="./static/feature3.png" alt="" />
     </FeatureBoxStyle>
   );
 }

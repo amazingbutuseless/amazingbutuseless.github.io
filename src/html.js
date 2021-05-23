@@ -35,7 +35,7 @@ export default function HTML(props) {
         />
         <link
           rel="shortcut icon"
-          href="/static/favicon.ico"
+          href="./static/favicon.ico"
           type="image/x-icon"
         />
         {props.headComponents}

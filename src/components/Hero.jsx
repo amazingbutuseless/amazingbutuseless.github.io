@@ -27,7 +27,7 @@ export default function Hero() {
   const [logoOpacity, setLogoOpacity] = useState(1);
 
   const getFrameImageSrc = (frameIndex = currentFrame) => {
-    return `/static/hero/desktop/hero${frameIndex
+    return `./static/hero/desktop/hero${frameIndex
       .toString()
       .padStart(4, "0")}.jpg`;
   };

@@ -13,7 +13,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "gatsby build --prefix-paths && gh-pages -r https://github.com/amazingbutuseless/ijustwannaseewonwoo.github.io.git -d public -b pages"
+    "deploy": "gatsby build --prefix-paths && gh-pages -r https://github.com/amazingbutuseless/ijustwannaseewonwoo-pages.git -d public -b pages"
   },
   "dependencies": {
     "@emotion/react": "^11.4.0",
