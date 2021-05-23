@@ -32,6 +32,13 @@ export default function Hero() {
       .padStart(4, "0")}.jpg`;
   };
 
+  const preloadImage = () => {
+    for (let i = 1; i <= HERO_TOTAL_FRAMES; i++) {
+      const img = new Image();
+      img.src = getFrameImageSrc(i);
+    }
+  };
+
   useEffect(() => {
     const onScroll = () => {
       const scrollTop = document.documentElement.scrollTop;
@@ -59,6 +66,8 @@ export default function Hero() {
 
     window.addEventListener("scroll", onScroll);
 
+    preloadImage();
+
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
@@ -77,5 +86,32 @@ export default function Hero() {
       </div>
       <Logo style={{ opacity: logoOpacity.toFixed(2) }} />
     </section>
+  );
+}
+
+export function MobileHero() {
+  return (
+    <div
+      style={{
+        position: "relative",
+        marginBottom: ".8rem",
+        paddingTop: "56.25%",
+      }}
+    >
+      <video
+        id="hero-video"
+        src="./static/hero.mp4"
+        playsInline={true}
+        muted={true}
+        autoPlay={true}
+        style={{
+          position: "absolute",
+          top: "0",
+          left: "0",
+          width: "100%",
+          height: "100%",
+        }}
+      />
+    </div>
   );
 }
