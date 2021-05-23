@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 
 import IntroduceSection from "../components/IntroduceSection";
 import FeatureSection from "../components/FeatureSection";
+import ContactSection from "../components/ContactSection";
 
 const IndexPage = () => {
   return (
@@ -12,6 +13,7 @@ const IndexPage = () => {
 
       <IntroduceSection />
       <FeatureSection />
+      <ContactSection />
     </main>
   );
 };
