@@ -72,8 +72,12 @@ export default function DownloadButton() {
 
   return (
     <div css={DownloadButtonStyle}>
-      {downloadUrl && <strong>다운로드 for {getUserOs().name}</strong>}
-      <button onClick={onDownloadButtonClick}>{buttonLabel}</button>
+      {downloadUrl && (
+        <>
+          <strong>다운로드 for {getUserOs().name}</strong>
+          <button onClick={onDownloadButtonClick}>{buttonLabel}</button>
+        </>
+      )}
     </div>
   );
 }
