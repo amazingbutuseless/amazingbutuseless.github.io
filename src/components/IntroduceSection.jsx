@@ -27,16 +27,16 @@ const FlexBox = css`
 `;
 
 export default function IntroduceSection({ children }) {
-  const [viewportWidth, updateViewportWidth] = useState(
-    document.documentElement.clientWidth
-  );
-
-  const setViewportWidth = () => {
-    updateViewportWidth(document.documentElement.clientWidth);
-  };
+  const [viewportWidth, updateViewportWidth] = useState(0);
 
   useEffect(() => {
+    const setViewportWidth = () => {
+      updateViewportWidth(document.documentElement.clientWidth);
+    };
+
     window.addEventListener("resize", setViewportWidth);
+
+    setViewportWidth();
 
     return () => {
       window.removeEventListener("resize", setViewportWidth);

@@ -32,30 +32,31 @@ export default function Hero() {
       .padStart(4, "0")}.jpg`;
   };
 
-  const onScroll = () => {
-    const scrollTop = document.documentElement.scrollTop;
-    const maxScrollTop =
-      document.querySelector("#hero-wrapper").scrollHeight - window.innerHeight;
-    const scrollFraction = scrollTop / maxScrollTop;
-
-    const frameIndex = Math.min(
-      HERO_TOTAL_FRAMES - 1,
-      Math.floor(scrollFraction * HERO_TOTAL_FRAMES)
-    );
-
-    if (frameIndex >= 62) {
-      document.body.style.backgroundColor = "rgba(255, 255, 255, 1)";
-    } else {
-      document.body.style.backgroundColor = "";
-    }
-
-    requestAnimationFrame(() => updateCurrentFrame(frameIndex));
-    setImageDegree(frameIndex > 90 ? frameIndex / HERO_TOTAL_FRAMES : 0);
-    const opacity = frameIndex >= 38 ? Math.max(0, 1 - frameIndex / 62) : 1;
-    setLogoOpacity(opacity);
-  };
-
   useEffect(() => {
+    const onScroll = () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const maxScrollTop =
+        document.querySelector("#hero-wrapper").scrollHeight -
+        window.innerHeight;
+      const scrollFraction = scrollTop / maxScrollTop;
+
+      const frameIndex = Math.min(
+        HERO_TOTAL_FRAMES - 1,
+        Math.floor(scrollFraction * HERO_TOTAL_FRAMES)
+      );
+
+      if (frameIndex >= 62) {
+        document.body.style.backgroundColor = "rgba(255, 255, 255, 1)";
+      } else {
+        document.body.style.backgroundColor = "";
+      }
+
+      requestAnimationFrame(() => updateCurrentFrame(frameIndex));
+      setImageDegree(frameIndex > 90 ? frameIndex / HERO_TOTAL_FRAMES : 0);
+      const opacity = frameIndex >= 38 ? Math.max(0, 1 - frameIndex / 62) : 1;
+      setLogoOpacity(opacity);
+    };
+
     window.addEventListener("scroll", onScroll);
 
     return () => {
