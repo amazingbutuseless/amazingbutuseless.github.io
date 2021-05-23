@@ -17,7 +17,7 @@ export const SectionStyle = css`
 `;
 
 export const SectionContentStyle = css`
-  padding: 0.8rem 1.6rem;
+  padding: 2.4rem 1.6rem;
   color: #fff;
 
   p {

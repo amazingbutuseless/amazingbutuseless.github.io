@@ -26,9 +26,9 @@ const LogoImageStyle = css`
   }
 `;
 
-export default function Logo() {
+export default function Logo({ style }) {
   return (
-    <div css={LogoImageWrapperStyle}>
+    <div css={LogoImageWrapperStyle} style={style}>
       <h1>늦덕이라도,</h1>
       <img src={LogoImage} css={LogoImageStyle} alt="ijustwannasee" />
     </div>

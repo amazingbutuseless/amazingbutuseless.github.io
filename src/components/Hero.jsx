@@ -11,7 +11,7 @@ const HeroStyle = css`
 
 const HeroImageWrapper = css`
   position: relative;
-  height: 150vh;
+  height: 200vh;
 
   @media screen and (min-width: 1280px) {
     height: 240vh;
@@ -24,6 +24,7 @@ export default function Hero() {
   const [currentFrame, updateCurrentFrame] = useState(1);
   const [frameImage, setFrameImage] = useState(null);
   const [imageDegree, setImageDegree] = useState(0);
+  const [logoOpacity, setLogoOpacity] = useState(1);
 
   const getFrameImageSrc = (frameIndex = currentFrame) => {
     return `/static/hero/desktop/hero${frameIndex
@@ -34,7 +35,7 @@ export default function Hero() {
   const onScroll = () => {
     const scrollTop = document.documentElement.scrollTop;
     const maxScrollTop =
-      document.documentElement.scrollHeight - window.innerHeight;
+      document.querySelector("#hero-wrapper").scrollHeight - window.innerHeight;
     const scrollFraction = scrollTop / maxScrollTop;
 
     const frameIndex = Math.min(
@@ -50,6 +51,8 @@ export default function Hero() {
 
     requestAnimationFrame(() => updateCurrentFrame(frameIndex));
     setImageDegree(frameIndex > 90 ? frameIndex / HERO_TOTAL_FRAMES : 0);
+    const opacity = frameIndex >= 38 ? Math.max(0, 1 - frameIndex / 62) : 1;
+    setLogoOpacity(opacity);
   };
 
   useEffect(() => {
@@ -68,10 +71,10 @@ export default function Hero() {
 
   return (
     <section css={HeroStyle}>
-      <div css={HeroImageWrapper}>
+      <div id="hero-wrapper" css={HeroImageWrapper}>
         <HeroImage frame={frameImage} degree={imageDegree} />
       </div>
-      {currentFrame <= 62 && <Logo />}
+      <Logo style={{ opacity: logoOpacity.toFixed(2) }} />
     </section>
   );
 }
