@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import IntroduceSection from "../components/IntroduceSection";
 import FeatureSection from "../components/FeatureSection";
 import ContactSection from "../components/ContactSection";
+import DownloadButton from "../components/DownloadButton";
 
 const IndexPage = () => {
   return (
@@ -11,7 +12,9 @@ const IndexPage = () => {
       <title>ijustwannaseewonwoo</title>
       <Hero />
 
-      <IntroduceSection />
+      <IntroduceSection>
+        <DownloadButton />
+      </IntroduceSection>
       <FeatureSection />
       <ContactSection />
     </main>
