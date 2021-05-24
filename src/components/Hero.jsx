@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import Logo from "./Logo";
 import HeroImage from "./HeroImage";
 
-const HeroStyle = styled.section`
+export const HeroStyle = styled.section`
   position: relative;
 `;
 
@@ -15,20 +15,6 @@ const HeroImageWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     height: 240vh;
   }
-`;
-
-const HeroVideoWrapper = styled.div`
-  position: relative;
-  margin-bottom: 0.8rem;
-  padding-top: 56.25%;
-`;
-
-const HeroVideo = styled.video`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 `;
 
 export default function Hero() {
@@ -103,18 +89,5 @@ export default function Hero() {
       </HeroImageWrapper>
       <Logo style={{ opacity: logoOpacity.toFixed(2) }} />
     </HeroStyle>
-  );
-}
-
-export function MobileHero() {
-  return (
-    <HeroVideoWrapper>
-      <HeroVideo
-        src="./static/hero.mp4"
-        playsInline={true}
-        muted={true}
-        autoPlay={true}
-      />
-    </HeroVideoWrapper>
   );
 }

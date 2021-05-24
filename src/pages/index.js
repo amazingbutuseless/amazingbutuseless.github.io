@@ -1,7 +1,8 @@
 import React from "react";
 import UAParser from "ua-parser-js";
 
-import Hero, { MobileHero } from "../components/Hero";
+import Hero from "../components/Hero";
+import MobileHero from "../components/MobileHero";
 import IntroduceSection from "../components/IntroduceSection";
 import FeatureSection from "../components/FeatureSection";
 import ContactSection from "../components/ContactSection";
@@ -14,8 +15,7 @@ const IndexPage = () => {
   return (
     <main>
       <title>ijustwannaseewonwoo</title>
-      {!forMobile && <Hero />}
-      {forMobile && <MobileHero />}
+      {forMobile ? <MobileHero /> : <Hero />}
 
       <IntroduceSection>
         <DownloadButton />

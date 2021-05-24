@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "@emotion/react";
 
-import LogoImage from "../../public/static/logo.svg";
+import LogoImage from "../images/logo.svg";
 
 const LogoImageWrapperStyle = css`
   position: fixed;
