@@ -11,12 +11,12 @@ export const SectionTitle = styled.h2`
   word-break: keep-all;
 `;
 
-export const SectionStyle = css`
+export const SectionStyle = styled.section`
   position: relative;
   background-color: var(--primary-color);
 `;
 
-export const SectionContentStyle = css`
+export const SectionContentStyle = styled.div`
   padding: 2.4rem 1.6rem;
   color: #fff;
 

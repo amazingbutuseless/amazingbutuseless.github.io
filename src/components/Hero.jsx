@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
-
-import { css } from "@emotion/react";
+import React, { useEffect, useState, useRef } from "react";
+import styled from "@emotion/styled";
 
 import Logo from "./Logo";
 import HeroImage from "./HeroImage";
 
-const HeroStyle = css`
+const HeroStyle = styled.section`
   position: relative;
 `;
 
-const HeroImageWrapper = css`
+const HeroImageWrapper = styled.div`
   position: relative;
   height: 200vh;
 
@@ -18,8 +17,24 @@ const HeroImageWrapper = css`
   }
 `;
 
+const HeroVideoWrapper = styled.div`
+  position: relative;
+  margin-bottom: 0.8rem;
+  padding-top: 56.25%;
+`;
+
+const HeroVideo = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
+
 export default function Hero() {
   const HERO_TOTAL_FRAMES = 186;
+
+  const heroWrapper = useRef(null);
 
   const [currentFrame, updateCurrentFrame] = useState(1);
   const [frameImage, setFrameImage] = useState(null);
@@ -41,10 +56,12 @@ export default function Hero() {
 
   useEffect(() => {
     const onScroll = () => {
+      const wrapper = heroWrapper.current;
+
+      if (!wrapper) return;
+
       const scrollTop = document.documentElement.scrollTop;
-      const maxScrollTop =
-        document.querySelector("#hero-wrapper").scrollHeight -
-        window.innerHeight;
+      const maxScrollTop = wrapper.scrollHeight - window.innerHeight;
       const scrollFraction = scrollTop / maxScrollTop;
 
       const frameIndex = Math.min(
@@ -80,38 +97,24 @@ export default function Hero() {
   }, [currentFrame]);
 
   return (
-    <section css={HeroStyle}>
-      <div id="hero-wrapper" css={HeroImageWrapper}>
+    <HeroStyle>
+      <HeroImageWrapper ref={heroWrapper}>
         <HeroImage frame={frameImage} degree={imageDegree} />
-      </div>
+      </HeroImageWrapper>
       <Logo style={{ opacity: logoOpacity.toFixed(2) }} />
-    </section>
+    </HeroStyle>
   );
 }
 
 export function MobileHero() {
   return (
-    <div
-      style={{
-        position: "relative",
-        marginBottom: ".8rem",
-        paddingTop: "56.25%",
-      }}
-    >
-      <video
-        id="hero-video"
+    <HeroVideoWrapper>
+      <HeroVideo
         src="./static/hero.mp4"
         playsInline={true}
         muted={true}
         autoPlay={true}
-        style={{
-          position: "absolute",
-          top: "0",
-          left: "0",
-          width: "100%",
-          height: "100%",
-        }}
       />
-    </div>
+    </HeroVideoWrapper>
   );
 }

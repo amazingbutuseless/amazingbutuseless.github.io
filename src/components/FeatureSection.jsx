@@ -136,8 +136,8 @@ function AddSceneFeature() {
 
 export default function FeatureSection() {
   return (
-    <section css={SectionStyle}>
-      <div css={SectionContentStyle}>
+    <SectionStyle>
+      <SectionContentStyle>
         <SectionTitle>Features.</SectionTitle>
 
         <SceneRegisteredVideoFeature />
@@ -146,7 +146,7 @@ export default function FeatureSection() {
           <AutoPlayFeature />
           <AddSceneFeature />
         </FeatureFlexBoxStyle>
-      </div>
-    </section>
+      </SectionContentStyle>
+    </SectionStyle>
   );
 }

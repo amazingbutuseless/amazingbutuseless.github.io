@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 
 import {
   SectionStyle,
@@ -15,7 +14,7 @@ const Wave = styled.svg`
   z-index: 1;
 `;
 
-const FlexBox = css`
+const FlexBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -44,7 +43,7 @@ export default function IntroduceSection({ children }) {
   }, []);
 
   return (
-    <section css={SectionStyle}>
+    <SectionStyle>
       <Wave
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
@@ -59,8 +58,8 @@ export default function IntroduceSection({ children }) {
         ></path>
       </Wave>
 
-      <div css={FlexBox}>
-        <div css={SectionContentStyle}>
+      <FlexBox>
+        <SectionContentStyle>
           <SectionTitle>
             ijustwannaseewonwoo,
             <br />
@@ -86,9 +85,9 @@ export default function IntroduceSection({ children }) {
               장면 모아보기" 프로젝트입니다.
             </span>
           </p>
-        </div>
+        </SectionContentStyle>
         {children}
-      </div>
-    </section>
+      </FlexBox>
+    </SectionStyle>
   );
 }
