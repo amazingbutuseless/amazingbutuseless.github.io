@@ -3,5 +3,4 @@ module.exports = {
     title: "ijustwannasee",
   },
   plugins: ["gatsby-plugin-emotion"],
-  pathPrefix: "/ijustwannaseewonwoo-pages",
 };
