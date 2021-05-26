@@ -12,14 +12,6 @@ const HeroImageCanvas = styled.canvas`
     ${({ degree }) =>
       degree > 0 ? degree.toFixed(2) : "0"}deg) translateY(-50%);
   );
-
-  @media screen and (min-width: 1280px) {
-    top: 0;
-    transform: rotate(
-      ${({ degree }) =>
-        degree > 0 ? degree.toFixed(2) : "0"}deg) translateY(0);
-    );
-  }
 `;
 
 export default function HeroImage({ frame, degree }) {
