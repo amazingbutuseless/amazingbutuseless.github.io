@@ -8,15 +8,6 @@ export const HeroStyle = styled.section`
   position: relative;
 `;
 
-const HeroImageWrapper = styled.div`
-  position: relative;
-  height: 200vh;
-
-  @media screen and (min-width: 1280px) {
-    height: 240vh;
-  }
-`;
-
 export default function Hero() {
   const HERO_TOTAL_FRAMES = 186;
 
@@ -24,8 +15,16 @@ export default function Hero() {
 
   const [currentFrame, updateCurrentFrame] = useState(1);
   const [frameImage, setFrameImage] = useState(null);
-  const [imageDegree, setImageDegree] = useState(0);
   const [logoOpacity, setLogoOpacity] = useState(1);
+
+  /**
+   * Decision Log
+   * gatsby 빌드시 window 객체를 확인 할 수 없으므로, useEffect 시점에 window 객체를 참조하여
+   * image wrapper의 style을 결정한다.
+   */
+  const [imageWrapperHeight, setImageWrapperHeight] = useState(
+    "calc(9 / 16 * 400vw)"
+  );
 
   const getFrameImageSrc = (frameIndex = currentFrame) => {
     return `./static/hero/desktop/hero${frameIndex
@@ -62,12 +61,15 @@ export default function Hero() {
       }
 
       requestAnimationFrame(() => updateCurrentFrame(frameIndex));
-      setImageDegree(frameIndex > 90 ? frameIndex / HERO_TOTAL_FRAMES : 0);
       const opacity = frameIndex >= 38 ? Math.max(0, 1 - frameIndex / 62) : 1;
       setLogoOpacity(opacity);
     };
 
     window.addEventListener("scroll", onScroll);
+
+    if (window.innerHeight > (9 / 16) * window.innerWidth * 2.5) {
+      setImageWrapperHeight("200vh");
+    }
 
     preloadImage();
 
@@ -84,9 +86,12 @@ export default function Hero() {
 
   return (
     <HeroStyle>
-      <HeroImageWrapper ref={heroWrapper}>
-        <HeroImage frame={frameImage} degree={imageDegree} />
-      </HeroImageWrapper>
+      <div
+        ref={heroWrapper}
+        style={{ position: "relative", height: imageWrapperHeight }}
+      >
+        <HeroImage frame={frameImage} />
+      </div>
       <Logo style={{ opacity: logoOpacity.toFixed(2) }} />
     </HeroStyle>
   );

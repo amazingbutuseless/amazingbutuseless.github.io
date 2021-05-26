@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 
 import {
   SectionStyle,
@@ -25,6 +26,12 @@ const FlexBox = styled.div`
   }
 `;
 
+const IntroduceSectionStye = css`
+  @media screen and (min-width: 768px) {
+    margin-top: -36vh;
+  }
+`;
+
 export default function IntroduceSection({ children }) {
   const [viewportWidth, updateViewportWidth] = useState(0);
 
@@ -43,7 +50,7 @@ export default function IntroduceSection({ children }) {
   }, []);
 
   return (
-    <SectionStyle>
+    <SectionStyle css={IntroduceSectionStye}>
       <Wave
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"

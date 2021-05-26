@@ -3,8 +3,6 @@ import styled from "@emotion/styled";
 
 const HeroVideoWrapper = styled.section`
   position: relative;
-  margin-bottom: 0.8rem;
-  padding-top: 56.25%;
 `;
 
 const HeroVideo = styled.video`

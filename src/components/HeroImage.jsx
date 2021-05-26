@@ -7,14 +7,13 @@ const HeroImageCanvas = styled.canvas`
   top: 50%;
   width: 100vw;
   height: auto;
-  z-index: 1;
   transform: rotate(
     ${({ degree }) =>
       degree > 0 ? degree.toFixed(2) : "0"}deg) translateY(-50%);
   );
 `;
 
-export default function HeroImage({ frame, degree }) {
+export default function HeroImage({ frame }) {
   const canvasRef = useRef(null);
 
   const context = useMemo(() => {
@@ -27,12 +26,5 @@ export default function HeroImage({ frame, degree }) {
     context.drawImage(frame, 0, 0);
   }
 
-  return (
-    <HeroImageCanvas
-      width={2560}
-      height={1440}
-      degree={degree}
-      ref={canvasRef}
-    />
-  );
+  return <HeroImageCanvas width={2560} height={1440} ref={canvasRef} />;
 }

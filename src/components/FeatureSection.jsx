@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 
 import {
   SectionStyle,
@@ -60,6 +61,15 @@ const FeatureFlexBoxStyle = styled.div`
   }
 `;
 
+const SceneReigsteredVideoFeatureImageStyle = css`
+  display: block;
+  margin: 0 -1.6rem;
+
+  @media screen and (min-width: 1280px) {
+    margin: 0;
+  }
+`;
+
 function SceneRegisteredVideoFeature() {
   return (
     <FeatureBoxStyle>
@@ -74,7 +84,7 @@ function SceneRegisteredVideoFeature() {
         봤던비디오또보고또보고하면서 원우가 나온 장면만 복습하고 싶을 때 -
         고양이를 찾아 원우가 나온 장면을 확인해보세요.
       </p>
-      <picture>
+      <picture css={SceneReigsteredVideoFeatureImageStyle}>
         <source srcSet="./static/feature1_d.png" media="(min-width: 1280px)" />
         <img src="./static/feature1_m.png" />
       </picture>
