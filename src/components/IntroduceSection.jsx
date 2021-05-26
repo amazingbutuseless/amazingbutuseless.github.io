@@ -81,8 +81,8 @@ export default function IntroduceSection({ children }) {
           </p>
           <p>
             <span css={ImportantParagraphStyle}>
-              twannaseewonwoo는 이런 생각끝에 만든 "원우가 나온 유튜브 비디오
-              장면 모아보기" 프로젝트입니다.
+              ijustwannaseewonwoo는 이런 생각끝에 만든 "원우가 나온 유튜브
+              비디오 장면 모아보기" 프로젝트입니다.
             </span>
           </p>
         </SectionContentStyle>
