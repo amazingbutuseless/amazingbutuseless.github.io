@@ -36,7 +36,12 @@ export default function ContactSection() {
   return (
     <SectionStyle>
       <ContactSectionStyle>
-        <p>&copy; amazingbutuseless 2021.</p>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <p>
+            <a href="/privacy-policy">개인정보처리방침</a>
+          </p>
+          <p>&copy; amazingbutuseless 2021.</p>
+        </div>
 
         <div
           style={{
