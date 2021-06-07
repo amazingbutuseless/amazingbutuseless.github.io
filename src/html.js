@@ -28,6 +28,10 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <meta
+          name="google-site-verification"
+          content="wMBujMdppAWDPqKfjCdyAoo9-FwD0pbGT45iMYtnAyA"
+        />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap"
