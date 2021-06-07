@@ -13,7 +13,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "gatsby build && gh-pages -r https://github.com/amazingbutuseless/amazingbutuseless.github.io.git -d public -b pages"
+    "deploy": "gatsby clean && mkdir -p public/static &&  cp -r src/images/* public/static && gatsby build && gh-pages -r https://github.com/amazingbutuseless/amazingbutuseless.github.io.git -d public -b pages"
   },
   "dependencies": {
     "@emotion/react": "^11.4.0",
