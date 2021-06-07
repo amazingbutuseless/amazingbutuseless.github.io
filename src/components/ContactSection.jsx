@@ -26,7 +26,9 @@ const ContactSectionStyle = styled(SectionContentStyle)`
 
 export default function ContactSection() {
   const onGithubLinkClick = () => {
-    window.open("https://github.com/amazingbutuseless/ijustwannaseewonwoo");
+    window.open(
+      "https://github.com/amazingbutuseless/ijustwannaseewonwoo-collector"
+    );
   };
 
   const onTwitterLinkClick = () => {

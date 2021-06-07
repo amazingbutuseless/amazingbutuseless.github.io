@@ -60,7 +60,7 @@ export default function DownloadButton() {
   useEffect(() => {
     async function fetchReleases() {
       const response = await fetch(
-        "https://api.github.com/repos/amazingbutuseless/ijustwannaseewonwoo/releases/latest"
+        "https://api.github.com/repos/amazingbutuseless/ijustwannaseewonwoo-collector/releases/latest"
       );
 
       const { assets } = await response.json();
